@@ -2,6 +2,7 @@ var AWS = require('aws-sdk');
 var app = require('express')();
 var bodyParser = require('body-parser')
 
+app.use(bodyParser.urlencoded({"extended": false})); 
 app.use(bodyParser.json()); 
 app.set('port', (process.env.PORT || 5000))
 
@@ -25,7 +26,8 @@ var url = 'https://console.aws.amazon.com/opsworks/home?region=eu-west-1#/stack/
 
 // listen on messages:
 app.post('/', function(request, response) {
-	if (request.token != process.env.SLACK_TOKEN) {
+	if (request.body.token != process.env.SLACK_TOKEN) {
+		console.log("invalid slack token received", request.token);
 		return ;
 	}
 
