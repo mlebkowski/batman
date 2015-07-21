@@ -1,0 +1,11 @@
+{
+  "name": "ndeploy",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1.39",
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1"
+  }
+}
